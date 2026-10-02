@@ -1,39 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
   <title>Card Game Hub</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=2"
+  >
 </head>
 
 <body>
 
   <h1>🃏 Card Game Hub</h1>
-  <p class="subtitle">Choose a game to play against the computer.</p>
+
+  <p class="subtitle">
+    Choose a game to play against the computer.
+  </p>
+
+
+  <!-- GAME MENU -->
 
   <div class="game-menu">
-    <button class="game-button" data-game="highcard">High Card</button>
-    <button class="game-button" data-game="war">War</button>
-    <button class="game-button" data-game="blackjack">Blackjack</button>
-    <button class="game-button" data-game="gofish">Go Fish</button>
-    <button class="game-button" data-game="memory">Memory</button>
+
+    <button
+      class="game-button"
+      data-game="highcard"
+    >
+      High Card
+    </button>
+
+
+    <button
+      class="game-button"
+      data-game="war"
+    >
+      War
+    </button>
+
+
+    <button
+      class="game-button"
+      data-game="blackjack"
+    >
+      Blackjack
+    </button>
+
+
+    <button
+      class="game-button"
+      data-game="gofish"
+    >
+      Go Fish
+    </button>
+
+
+    <button
+      class="game-button"
+      data-game="memory"
+    >
+      Memory
+    </button>
+
   </div>
+
 
 
   <!-- HIGH CARD -->
 
-  <div id="highcard" class="game-screen">
+  <div
+    id="highcard"
+    class="game-screen"
+  >
 
     <h2>High Card</h2>
 
     <p>Player</p>
-    <div id="player-card" class="card">?</div>
+
+    <div
+      id="player-card"
+      class="card"
+    >
+      ?
+    </div>
+
 
     <p>Computer</p>
-    <div id="computer-card" class="card">?</div>
 
-    <button id="draw-button">Draw Cards</button>
+    <div
+      id="computer-card"
+      class="card"
+    >
+      ?
+    </div>
+
+
+    <button id="draw-button">
+      Draw Cards
+    </button>
+
 
     <h3 id="result">
       Press Draw Cards to play.
@@ -42,23 +114,46 @@
   </div>
 
 
+
   <!-- WAR -->
 
-  <div id="war" class="game-screen hidden">
+  <div
+    id="war"
+    class="game-screen hidden"
+  >
 
     <h2>⚔️ War</h2>
 
+
     <p>Player</p>
-    <div id="war-player-card" class="card">?</div>
+
+    <div
+      id="war-player-card"
+      class="card"
+    >
+      ?
+    </div>
+
 
     <p>Computer</p>
-    <div id="war-computer-card" class="card">?</div>
 
-    <button id="war-draw-button">Draw Cards</button>
+    <div
+      id="war-computer-card"
+      class="card"
+    >
+      ?
+    </div>
+
+
+    <button id="war-draw-button">
+      Draw Cards
+    </button>
+
 
     <h3 id="war-result">
       Press Draw Cards to play.
     </h3>
+
 
     <p id="war-score">
       Player: 0 | Computer: 0
@@ -67,18 +162,25 @@
   </div>
 
 
+
   <!-- BLACKJACK -->
 
-  <div id="blackjack" class="game-screen hidden">
+  <div
+    id="blackjack"
+    class="game-screen hidden"
+  >
 
     <h2>♠ Blackjack</h2>
+
 
     <p>Your Hand</p>
 
     <div
       id="blackjack-player-cards"
-      class="blackjack-hand">
+      class="blackjack-hand"
+    >
     </div>
+
 
     <p id="blackjack-player-total">
       Total: 0
@@ -89,8 +191,10 @@
 
     <div
       id="blackjack-dealer-cards"
-      class="blackjack-hand">
+      class="blackjack-hand"
+    >
     </div>
+
 
     <p id="blackjack-dealer-total">
       Total: ?
@@ -113,6 +217,7 @@
 
     </div>
 
+
     <h3 id="blackjack-result">
       Press New Game to start.
     </h3>
@@ -120,86 +225,139 @@
   </div>
 
 
-<div id="gofish" class="game-screen hidden">
 
-  <h2>🐟 Go Fish</h2>
+  <!-- GO FISH -->
 
-  <p>Your Hand</p>
-  <div id="gofish-player-hand" class="fish-hand"></div>
+  <div
+    id="gofish"
+    class="game-screen hidden"
+  >
 
-  <p>
-    Your Books:
-    <span id="gofish-player-books">0</span>
-  </p>
+    <h2>🐟 Go Fish</h2>
 
-  <p>
-    Computer Cards:
-    <span id="gofish-computer-count">5</span>
-  </p>
 
-  <p>
-    Computer Books:
-    <span id="gofish-computer-books">0</span>
-  </p>
+    <p>Your Hand</p>
 
-  <p>
-    Deck:
-    <span id="gofish-deck-count">42</span>
-    cards
-  </p>
+    <div
+      id="gofish-player-hand"
+      class="fish-hand"
+    >
+    </div>
 
-  <div class="fish-controls">
 
-    <label for="gofish-rank">
-      Ask for:
-    </label>
+    <p>
+      Your Books:
+      <span id="gofish-player-books">
+        0
+      </span>
+    </p>
 
-    <select id="gofish-rank"></select>
 
-    <button id="gofish-ask-button">
-      Ask
-    </button>
+    <p>
+      Computer Cards:
+      <span id="gofish-computer-count">
+        5
+      </span>
+    </p>
 
-    <button id="gofish-new-button">
-      New Game
-    </button>
+
+    <p>
+      Computer Books:
+      <span id="gofish-computer-books">
+        0
+      </span>
+    </p>
+
+
+    <p>
+      Deck:
+      <span id="gofish-deck-count">
+        42
+      </span>
+      cards
+    </p>
+
+
+    <div class="fish-controls">
+
+      <label for="gofish-rank">
+        Ask for:
+      </label>
+
+
+      <select id="gofish-rank">
+      </select>
+
+
+      <button id="gofish-ask-button">
+        Ask
+      </button>
+
+
+      <button id="gofish-new-button">
+        New Game
+      </button>
+
+    </div>
+
+
+    <h3 id="gofish-result">
+      Press New Game to start.
+    </h3>
 
   </div>
 
-  <h3 id="gofish-result">
-    Press New Game to start.
-  </h3>
 
-</div>
 
-<div id="memory" class="game-screen hidden">
+  <!-- MEMORY -->
 
-  <h2>🧠 Memory</h2>
+  <div
+    id="memory"
+    class="game-screen hidden"
+  >
 
-  <p>
-    Moves:
-    <span id="memory-moves">0</span>
-  </p>
+    <h2>🧠 Memory</h2>
 
-  <p>
-    Matches:
-    <span id="memory-matches">0</span>
-    / 8
-  </p>
 
-  <button id="memory-new-button">
-    New Game
-  </button>
+    <p>
+      Moves:
+      <span id="memory-moves">
+        0
+      </span>
+    </p>
 
-  <div id="memory-board" class="memory-board"></div>
 
-  <h3 id="memory-result">
-    Press New Game to start.
-  </h3>
+    <p>
+      Matches:
+      <span id="memory-matches">
+        0
+      </span>
+      / 8
+    </p>
 
-</div>
 
-  <script src="script.js"></script>
+    <button id="memory-new-button">
+      New Game
+    </button>
+
+
+    <div
+      id="memory-board"
+      class="memory-board"
+    >
+    </div>
+
+
+    <h3 id="memory-result">
+      Press New Game to start.
+    </h3>
+
+  </div>
+
+
+
+  <script src="script.js?v=2"></script>
 
 </body>
+
 </html>
