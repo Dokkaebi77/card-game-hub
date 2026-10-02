@@ -6,12 +6,10 @@ body {
   padding: 40px;
 }
 
-
 h1 {
   font-size: 42px;
   margin-bottom: 5px;
 }
-
 
 .subtitle {
   color: #cbd5e1;
@@ -19,7 +17,9 @@ h1 {
 }
 
 
-/* GAME MENU */
+/* --------------------
+   GAME MENU
+-------------------- */
 
 .game-menu {
   display: flex;
@@ -29,7 +29,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-
 button {
   padding: 12px 18px;
   font-size: 16px;
@@ -38,11 +37,9 @@ button {
   cursor: pointer;
 }
 
-
 button:hover {
   background: #d1d5db;
 }
-
 
 .game-button {
   background: white;
@@ -50,30 +47,36 @@ button:hover {
 }
 
 
-/* GAME AREA */
+/* --------------------
+   GAME AREA
+-------------------- */
 
 .game-screen {
   background: #111827;
-  max-width: 500px;
+  max-width: 520px;
   margin: auto;
   padding: 30px;
   border-radius: 16px;
 }
-
 
 .hidden {
   display: none;
 }
 
 
-/* CARDS */
+/* --------------------
+   REGULAR CARD
+-------------------- */
 
 .card {
   background: white;
   color: black;
+
   width: 100px;
   height: 140px;
+
   margin: 10px auto 20px;
+
   border-radius: 10px;
 
   display: flex;
@@ -85,37 +88,90 @@ button:hover {
 }
 
 
-/* BLACKJACK */
+/* --------------------
+   BLACKJACK
+-------------------- */
 
 .blackjack-hand {
-  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin: 15px 0 20px;
+
+  min-height: 160px;
+}
+
+
+/*
+Blackjack uses the same basic
+card design as High Card
+*/
+
+.blackjack-card {
+  background: white;
+
+  width: 100px;
+  height: 140px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 36px;
   font-weight: bold;
-  margin: 15px;
-  min-height: 40px;
+
+  color: black;
+}
+
+
+/* Dealer hidden card */
+
+.blackjack-card.hidden-card {
+  background: #374151;
+  color: white !important;
+
+  border: 3px solid white;
 }
 
 
 .blackjack-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
+
+  gap: 10px;
+
   margin-top: 20px;
 }
+
+
+/* --------------------
+   GO FISH
+-------------------- */
 
 .fish-hand {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
   gap: 8px;
+
   margin: 15px 0 25px;
 }
 
 .fish-card {
   background: white;
   color: black;
+
   padding: 12px 14px;
+
   border-radius: 8px;
+
   font-size: 20px;
   font-weight: bold;
 }
@@ -135,15 +191,21 @@ button:hover {
   color: orange;
 }
 
+
 /* --------------------
-   MEMORY GAME
+   MEMORY
 -------------------- */
 
 .memory-board {
   display: grid;
-  grid-template-columns: repeat(4, 80px);
+
+  grid-template-columns:
+    repeat(4, 80px);
+
   gap: 12px;
+
   justify-content: center;
+
   margin-top: 25px;
 }
 

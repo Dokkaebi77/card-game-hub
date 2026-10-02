@@ -26,16 +26,26 @@ const suits = [
 ];
 
 
-// Makes hearts and diamonds red
-function setCardColor(element, cardText) {
+function setCardColor(
+  element,
+  cardText
+) {
 
   if (
     cardText.includes("♥") ||
     cardText.includes("♦")
   ) {
-    element.style.color = "red";
-  } else {
-    element.style.color = "black";
+
+    element.style.color =
+      "#ef3123";
+
+  }
+
+  else {
+
+    element.style.color =
+      "black";
+
   }
 
 }
@@ -47,30 +57,51 @@ function setCardColor(element, cardText) {
 // --------------------
 
 const gameButtons =
-  document.querySelectorAll(".game-button");
+  document.querySelectorAll(
+    ".game-button"
+  );
 
 const gameScreens =
-  document.querySelectorAll(".game-screen");
+  document.querySelectorAll(
+    ".game-screen"
+  );
 
 
-gameButtons.forEach(function(button) {
+gameButtons.forEach(
+  function(button) {
 
-  button.addEventListener("click", function() {
+    button.addEventListener(
+      "click",
+      function() {
 
-    const selectedGame =
-      button.dataset.game;
+        const selectedGame =
+          button.dataset.game;
 
-    gameScreens.forEach(function(screen) {
-      screen.classList.add("hidden");
-    });
 
-    document
-      .getElementById(selectedGame)
-      .classList.remove("hidden");
+        gameScreens.forEach(
+          function(screen) {
 
-  });
+            screen.classList.add(
+              "hidden"
+            );
 
-});
+          }
+        );
+
+
+        document
+          .getElementById(
+            selectedGame
+          )
+          .classList.remove(
+            "hidden"
+          );
+
+      }
+    );
+
+  }
+);
 
 
 
@@ -79,75 +110,102 @@ gameButtons.forEach(function(button) {
 // --------------------
 
 const playerCard =
-  document.getElementById("player-card");
+  document.getElementById(
+    "player-card"
+  );
 
 const computerCard =
-  document.getElementById("computer-card");
+  document.getElementById(
+    "computer-card"
+  );
 
 const drawButton =
-  document.getElementById("draw-button");
+  document.getElementById(
+    "draw-button"
+  );
 
 const result =
-  document.getElementById("result");
-
-
-drawButton.addEventListener("click", function() {
-
-  const playerValue =
-    Math.floor(Math.random() * 13);
-
-  const computerValue =
-    Math.floor(Math.random() * 13);
-
-  const playerSuit =
-    Math.floor(Math.random() * 4);
-
-  const computerSuit =
-    Math.floor(Math.random() * 4);
-
-
-  playerCard.textContent =
-    values[playerValue] +
-    suits[playerSuit];
-
-  computerCard.textContent =
-    values[computerValue] +
-    suits[computerSuit];
-
-
-  setCardColor(
-    playerCard,
-    playerCard.textContent
-  );
-
-  setCardColor(
-    computerCard,
-    computerCard.textContent
+  document.getElementById(
+    "result"
   );
 
 
-  if (playerValue > computerValue) {
+drawButton.addEventListener(
+  "click",
+  function() {
 
-    result.textContent =
-      "You win! 🎉";
+    const playerValue =
+      Math.floor(
+        Math.random() * 13
+      );
+
+    const computerValue =
+      Math.floor(
+        Math.random() * 13
+      );
+
+    const playerSuit =
+      Math.floor(
+        Math.random() * 4
+      );
+
+    const computerSuit =
+      Math.floor(
+        Math.random() * 4
+      );
+
+
+    playerCard.textContent =
+      values[playerValue] +
+      suits[playerSuit];
+
+
+    computerCard.textContent =
+      values[computerValue] +
+      suits[computerSuit];
+
+
+    setCardColor(
+      playerCard,
+      playerCard.textContent
+    );
+
+
+    setCardColor(
+      computerCard,
+      computerCard.textContent
+    );
+
+
+    if (
+      playerValue >
+      computerValue
+    ) {
+
+      result.textContent =
+        "You win! 🎉";
+
+    }
+
+    else if (
+      playerValue <
+      computerValue
+    ) {
+
+      result.textContent =
+        "Computer wins! 💻";
+
+    }
+
+    else {
+
+      result.textContent =
+        "Tie!";
+
+    }
 
   }
-
-  else if (playerValue < computerValue) {
-
-    result.textContent =
-      "Computer wins! 💻";
-
-  }
-
-  else {
-
-    result.textContent =
-      "Tie!";
-
-  }
-
-});
+);
 
 
 
@@ -156,19 +214,29 @@ drawButton.addEventListener("click", function() {
 // --------------------
 
 const warPlayerCard =
-  document.getElementById("war-player-card");
+  document.getElementById(
+    "war-player-card"
+  );
 
 const warComputerCard =
-  document.getElementById("war-computer-card");
+  document.getElementById(
+    "war-computer-card"
+  );
 
 const warDrawButton =
-  document.getElementById("war-draw-button");
+  document.getElementById(
+    "war-draw-button"
+  );
 
 const warResult =
-  document.getElementById("war-result");
+  document.getElementById(
+    "war-result"
+  );
 
 const warScore =
-  document.getElementById("war-score");
+  document.getElementById(
+    "war-score"
+  );
 
 
 let warPlayerScore = 0;
@@ -186,6 +254,7 @@ function showWarCards(
     values[playerValue] +
     suits[playerSuit];
 
+
   warComputerCard.textContent =
     values[computerValue] +
     suits[computerSuit];
@@ -196,6 +265,7 @@ function showWarCards(
     warPlayerCard.textContent
   );
 
+
   setCardColor(
     warComputerCard,
     warComputerCard.textContent
@@ -204,108 +274,145 @@ function showWarCards(
 }
 
 
-warDrawButton.addEventListener("click", function() {
+warDrawButton.addEventListener(
+  "click",
+  function() {
 
-  let playerValue =
-    Math.floor(Math.random() * 13);
+    let playerValue =
+      Math.floor(
+        Math.random() * 13
+      );
 
-  let computerValue =
-    Math.floor(Math.random() * 13);
+    let computerValue =
+      Math.floor(
+        Math.random() * 13
+      );
 
-  let playerSuit =
-    Math.floor(Math.random() * 4);
+    let playerSuit =
+      Math.floor(
+        Math.random() * 4
+      );
 
-  let computerSuit =
-    Math.floor(Math.random() * 4);
-
-
-  showWarCards(
-    playerValue,
-    playerSuit,
-    computerValue,
-    computerSuit
-  );
-
-
-  if (playerValue > computerValue) {
-
-    warPlayerScore++;
-
-    warResult.textContent =
-      "You win this round!";
-
-  }
-
-  else if (playerValue < computerValue) {
-
-    warComputerScore++;
-
-    warResult.textContent =
-      "Computer wins this round!";
-
-  }
-
-  else {
-
-    let warFinished = false;
-
-    while (!warFinished) {
-
-      playerValue =
-        Math.floor(Math.random() * 13);
-
-      computerValue =
-        Math.floor(Math.random() * 13);
-
-      playerSuit =
-        Math.floor(Math.random() * 4);
-
-      computerSuit =
-        Math.floor(Math.random() * 4);
-
-
-      showWarCards(
-        playerValue,
-        playerSuit,
-        computerValue,
-        computerSuit
+    let computerSuit =
+      Math.floor(
+        Math.random() * 4
       );
 
 
-      if (playerValue > computerValue) {
+    showWarCards(
+      playerValue,
+      playerSuit,
+      computerValue,
+      computerSuit
+    );
 
-        warPlayerScore++;
 
-        warResult.textContent =
-          "WAR! You win the war!";
+    if (
+      playerValue >
+      computerValue
+    ) {
 
-        warFinished = true;
+      warPlayerScore++;
 
-      }
+      warResult.textContent =
+        "You win this round!";
 
-      else if (playerValue < computerValue) {
+    }
 
-        warComputerScore++;
+    else if (
+      playerValue <
+      computerValue
+    ) {
 
-        warResult.textContent =
-          "WAR! Computer wins the war!";
+      warComputerScore++;
 
-        warFinished = true;
+      warResult.textContent =
+        "Computer wins this round!";
+
+    }
+
+    else {
+
+      let warFinished =
+        false;
+
+
+      while (
+        !warFinished
+      ) {
+
+        playerValue =
+          Math.floor(
+            Math.random() * 13
+          );
+
+        computerValue =
+          Math.floor(
+            Math.random() * 13
+          );
+
+        playerSuit =
+          Math.floor(
+            Math.random() * 4
+          );
+
+        computerSuit =
+          Math.floor(
+            Math.random() * 4
+          );
+
+
+        showWarCards(
+          playerValue,
+          playerSuit,
+          computerValue,
+          computerSuit
+        );
+
+
+        if (
+          playerValue >
+          computerValue
+        ) {
+
+          warPlayerScore++;
+
+          warResult.textContent =
+            "WAR! You win the war!";
+
+          warFinished =
+            true;
+
+        }
+
+        else if (
+          playerValue <
+          computerValue
+        ) {
+
+          warComputerScore++;
+
+          warResult.textContent =
+            "WAR! Computer wins the war!";
+
+          warFinished =
+            true;
+
+        }
 
       }
 
     }
 
+
+    warScore.textContent =
+      "Player: " +
+      warPlayerScore +
+      " | Computer: " +
+      warComputerScore;
+
   }
-
-
-  warScore.textContent =
-    "Player: " +
-    warPlayerScore +
-    " | Computer: " +
-    warComputerScore;
-
-});
+);
 
 
 
@@ -355,29 +462,37 @@ const blackjackResult =
 
 
 let blackjackPlayerHand = [];
+
 let blackjackDealerHand = [];
 
-let blackjackGameOver = true;
+let blackjackGameOver =
+  true;
 
 
 
 function drawBlackjackCard() {
 
-  const value =
-    Math.floor(Math.random() * 13);
-
-  const suit =
-    Math.floor(Math.random() * 4);
-
   return {
-    value: value,
-    suit: suit
+
+    value:
+      Math.floor(
+        Math.random() * 13
+      ),
+
+    suit:
+      Math.floor(
+        Math.random() * 4
+      )
+
   };
 
 }
 
 
-function getBlackjackCardName(card) {
+
+function getBlackjackCardName(
+  card
+) {
 
   return (
     values[card.value] +
@@ -387,7 +502,10 @@ function getBlackjackCardName(card) {
 }
 
 
-function getBlackjackCardPoints(card) {
+
+function getBlackjackCardPoints(
+  card
+) {
 
   const cardName =
     values[card.value];
@@ -398,39 +516,59 @@ function getBlackjackCardPoints(card) {
     cardName === "Q" ||
     cardName === "K"
   ) {
+
     return 10;
+
   }
 
 
-  if (cardName === "A") {
+  if (
+    cardName === "A"
+  ) {
+
     return 11;
+
   }
 
 
-  return Number(cardName);
+  return Number(
+    cardName
+  );
 
 }
 
 
-function calculateBlackjackTotal(hand) {
+
+function calculateBlackjackTotal(
+  hand
+) {
 
   let total = 0;
+
   let aces = 0;
 
 
-  hand.forEach(function(card) {
+  hand.forEach(
+    function(card) {
 
-    total +=
-      getBlackjackCardPoints(card);
+      total +=
+        getBlackjackCardPoints(
+          card
+        );
 
 
-    if (
-      values[card.value] === "A"
-    ) {
-      aces++;
+      if (
+        values[
+          card.value
+        ] === "A"
+      ) {
+
+        aces++;
+
+      }
+
     }
-
-  });
+  );
 
 
   while (
@@ -439,6 +577,7 @@ function calculateBlackjackTotal(hand) {
   ) {
 
     total -= 10;
+
     aces--;
 
   }
@@ -449,61 +588,86 @@ function calculateBlackjackTotal(hand) {
 }
 
 
-// Display Blackjack cards with correct colors
+
+/*
+This is the important part.
+
+Every Blackjack card now gets
+a real white card box.
+*/
+
 function displayBlackjackHand(
   container,
   hand,
   hideSecondCard = false
 ) {
 
-  container.innerHTML = "";
+  container.innerHTML =
+    "";
 
 
-  hand.forEach(function(card, index) {
+  hand.forEach(
+    function(card, index) {
 
-    if (
-      hideSecondCard &&
-      index === 1
-    ) {
+      const cardElement =
+        document.createElement(
+          "div"
+        );
 
-      const hidden =
-        document.createElement("span");
 
-      hidden.textContent = "🂠";
+      cardElement.className =
+        "blackjack-card";
 
-      hidden.style.margin = "0 6px";
 
-      container.appendChild(hidden);
+      if (
+        hideSecondCard &&
+        index === 1
+      ) {
 
-      return;
+        cardElement.classList.add(
+          "hidden-card"
+        );
+
+
+        cardElement.textContent =
+          "🂠";
+
+
+        container.appendChild(
+          cardElement
+        );
+
+
+        return;
+
+      }
+
+
+      const cardName =
+        getBlackjackCardName(
+          card
+        );
+
+
+      cardElement.textContent =
+        cardName;
+
+
+      setCardColor(
+        cardElement,
+        cardName
+      );
+
+
+      container.appendChild(
+        cardElement
+      );
 
     }
-
-
-    const cardElement =
-      document.createElement("span");
-
-    const cardName =
-      getBlackjackCardName(card);
-
-    cardElement.textContent =
-      cardName;
-
-    cardElement.style.margin =
-      "0 6px";
-
-    setCardColor(
-      cardElement,
-      cardName
-    );
-
-    container.appendChild(
-      cardElement
-    );
-
-  });
+  );
 
 }
+
 
 
 function showBlackjackCards(
@@ -535,6 +699,7 @@ function showBlackjackCards(
       true
     );
 
+
     blackjackDealerTotal.textContent =
       "Total: ?";
 
@@ -547,6 +712,7 @@ function showBlackjackCards(
       blackjackDealerHand,
       false
     );
+
 
     blackjackDealerTotal.textContent =
       "Total: " +
@@ -567,25 +733,34 @@ blackjackStartButton.addEventListener(
   function() {
 
     blackjackPlayerHand = [
+
       drawBlackjackCard(),
+
       drawBlackjackCard()
+
     ];
 
 
     blackjackDealerHand = [
+
       drawBlackjackCard(),
+
       drawBlackjackCard()
+
     ];
 
 
-    blackjackGameOver = false;
+    blackjackGameOver =
+      false;
 
 
     blackjackResult.textContent =
       "Hit or Stand?";
 
 
-    showBlackjackCards(true);
+    showBlackjackCards(
+      true
+    );
 
 
     const playerTotal =
@@ -600,14 +775,22 @@ blackjackStartButton.addEventListener(
       );
 
 
-    if (playerTotal === 21) {
+    if (
+      playerTotal === 21
+    ) {
 
-      blackjackGameOver = true;
+      blackjackGameOver =
+        true;
 
-      showBlackjackCards(false);
+
+      showBlackjackCards(
+        false
+      );
 
 
-      if (dealerTotal === 21) {
+      if (
+        dealerTotal === 21
+      ) {
 
         blackjackResult.textContent =
           "Both have Blackjack! Push.";
@@ -634,8 +817,12 @@ blackjackHitButton.addEventListener(
   "click",
   function() {
 
-    if (blackjackGameOver) {
+    if (
+      blackjackGameOver
+    ) {
+
       return;
+
     }
 
 
@@ -644,7 +831,9 @@ blackjackHitButton.addEventListener(
     );
 
 
-    showBlackjackCards(true);
+    showBlackjackCards(
+      true
+    );
 
 
     const total =
@@ -653,18 +842,27 @@ blackjackHitButton.addEventListener(
       );
 
 
-    if (total > 21) {
+    if (
+      total > 21
+    ) {
 
-      blackjackGameOver = true;
+      blackjackGameOver =
+        true;
 
-      showBlackjackCards(false);
+
+      showBlackjackCards(
+        false
+      );
+
 
       blackjackResult.textContent =
         "Bust! Dealer wins.";
 
     }
 
-    else if (total === 21) {
+    else if (
+      total === 21
+    ) {
 
       blackjackResult.textContent =
         "21! You can Stand.";
@@ -682,8 +880,12 @@ blackjackStandButton.addEventListener(
   "click",
   function() {
 
-    if (blackjackGameOver) {
+    if (
+      blackjackGameOver
+    ) {
+
       return;
+
     }
 
 
@@ -700,9 +902,13 @@ blackjackStandButton.addEventListener(
     }
 
 
-    blackjackGameOver = true;
+    blackjackGameOver =
+      true;
 
-    showBlackjackCards(false);
+
+    showBlackjackCards(
+      false
+    );
 
 
     const playerTotal =
@@ -717,7 +923,9 @@ blackjackStandButton.addEventListener(
       );
 
 
-    if (dealerTotal > 21) {
+    if (
+      dealerTotal > 21
+    ) {
 
       blackjackResult.textContent =
         "Dealer busts! You win! 🎉";
@@ -725,7 +933,8 @@ blackjackStandButton.addEventListener(
     }
 
     else if (
-      playerTotal > dealerTotal
+      playerTotal >
+      dealerTotal
     ) {
 
       blackjackResult.textContent =
@@ -734,7 +943,8 @@ blackjackStandButton.addEventListener(
     }
 
     else if (
-      playerTotal < dealerTotal
+      playerTotal <
+      dealerTotal
     ) {
 
       blackjackResult.textContent =
@@ -807,12 +1017,15 @@ const goFishResult =
 let goFishDeck = [];
 
 let goFishPlayer = [];
+
 let goFishComputer = [];
 
 let playerBooks = 0;
+
 let computerBooks = 0;
 
-let goFishGameOver = true;
+let goFishGameOver =
+  true;
 
 
 
@@ -834,8 +1047,11 @@ function createGoFishDeck() {
     ) {
 
       deck.push({
+
         value: value,
+
         suit: suit
+
       });
 
     }
@@ -848,11 +1064,17 @@ function createGoFishDeck() {
 }
 
 
-function shuffleDeck(deck) {
+
+function shuffleDeck(
+  deck
+) {
 
   for (
-    let i = deck.length - 1;
+    let i =
+      deck.length - 1;
+
     i > 0;
+
     i--
   ) {
 
@@ -863,15 +1085,21 @@ function shuffleDeck(deck) {
       );
 
 
-    const temp = deck[i];
+    const temp =
+      deck[i];
 
-    deck[i] = deck[j];
 
-    deck[j] = temp;
+    deck[i] =
+      deck[j];
+
+
+    deck[j] =
+      temp;
 
   }
 
 }
+
 
 
 function drawFromGoFishDeck() {
@@ -879,15 +1107,21 @@ function drawFromGoFishDeck() {
   if (
     goFishDeck.length === 0
   ) {
+
     return null;
+
   }
+
 
   return goFishDeck.pop();
 
 }
 
 
-function getFishCardName(card) {
+
+function getFishCardName(
+  card
+) {
 
   return (
     values[card.value] +
@@ -897,17 +1131,24 @@ function getFishCardName(card) {
 }
 
 
+
 function dealGoFishCards() {
 
   goFishPlayer = [];
+
   goFishComputer = [];
 
 
-  for (let i = 0; i < 5; i++) {
+  for (
+    let i = 0;
+    i < 5;
+    i++
+  ) {
 
     goFishPlayer.push(
       drawFromGoFishDeck()
     );
+
 
     goFishComputer.push(
       drawFromGoFishDeck()
@@ -918,6 +1159,7 @@ function dealGoFishCards() {
 }
 
 
+
 function removeBooks(
   hand,
   owner
@@ -926,15 +1168,28 @@ function removeBooks(
   const counts = {};
 
 
-  hand.forEach(function(card) {
+  hand.forEach(
+    function(card) {
 
-    if (!counts[card.value]) {
-      counts[card.value] = 0;
+      if (
+        !counts[
+          card.value
+        ]
+      ) {
+
+        counts[
+          card.value
+        ] = 0;
+
+      }
+
+
+      counts[
+        card.value
+      ]++;
+
     }
-
-    counts[card.value]++;
-
-  });
+  );
 
 
   for (
@@ -950,8 +1205,11 @@ function removeBooks(
 
 
       for (
-        let i = hand.length - 1;
+        let i =
+          hand.length - 1;
+
         i >= 0;
+
         i--
       ) {
 
@@ -960,7 +1218,10 @@ function removeBooks(
           numericValue
         ) {
 
-          hand.splice(i, 1);
+          hand.splice(
+            i,
+            1
+          );
 
         }
 
@@ -968,16 +1229,22 @@ function removeBooks(
 
 
       if (
-        owner === "player"
+        owner ===
+        "player"
       ) {
+
         playerBooks++;
+
       }
 
 
       if (
-        owner === "computer"
+        owner ===
+        "computer"
       ) {
+
         computerBooks++;
+
       }
 
     }
@@ -987,13 +1254,15 @@ function removeBooks(
 }
 
 
+
 function updateGoFishRankOptions() {
 
   goFishRankSelect.innerHTML =
     "";
 
 
-  const uniqueValues = [];
+  const uniqueValues =
+    [];
 
 
   goFishPlayer.forEach(
@@ -1023,11 +1292,14 @@ function updateGoFishRankOptions() {
           "option"
         );
 
+
       option.value =
         value;
 
+
       option.textContent =
         values[value];
+
 
       goFishRankSelect.appendChild(
         option
@@ -1037,6 +1309,7 @@ function updateGoFishRankOptions() {
   );
 
 }
+
 
 
 function displayGoFish() {
@@ -1053,12 +1326,15 @@ function displayGoFish() {
           "div"
         );
 
+
       cardElement.className =
         "fish-card";
 
 
       const cardName =
-        getFishCardName(card);
+        getFishCardName(
+          card
+        );
 
 
       cardElement.textContent =
@@ -1082,11 +1358,14 @@ function displayGoFish() {
   goFishPlayerBooks.textContent =
     playerBooks;
 
+
   goFishComputerBooks.textContent =
     computerBooks;
 
+
   goFishComputerCount.textContent =
     goFishComputer.length;
+
 
   goFishDeckCount.textContent =
     goFishDeck.length;
@@ -1097,18 +1376,23 @@ function displayGoFish() {
 }
 
 
+
 function takeCardsOfRank(
   fromHand,
   toHand,
   value
 ) {
 
-  const takenCards = [];
+  const takenCards =
+    [];
 
 
   for (
-    let i = fromHand.length - 1;
+    let i =
+      fromHand.length - 1;
+
     i >= 0;
+
     i--
   ) {
 
@@ -1121,7 +1405,11 @@ function takeCardsOfRank(
         fromHand[i]
       );
 
-      fromHand.splice(i, 1);
+
+      fromHand.splice(
+        i,
+        1
+      );
 
     }
 
@@ -1131,7 +1419,9 @@ function takeCardsOfRank(
   takenCards.forEach(
     function(card) {
 
-      toHand.push(card);
+      toHand.push(
+        card
+      );
 
     }
   );
@@ -1142,7 +1432,10 @@ function takeCardsOfRank(
 }
 
 
-function refillHandIfEmpty(hand) {
+
+function refillHandIfEmpty(
+  hand
+) {
 
   if (
     hand.length === 0 &&
@@ -1152,13 +1445,19 @@ function refillHandIfEmpty(hand) {
     const card =
       drawFromGoFishDeck();
 
+
     if (card) {
-      hand.push(card);
+
+      hand.push(
+        card
+      );
+
     }
 
   }
 
 }
+
 
 
 function checkGoFishGameOver() {
@@ -1171,7 +1470,8 @@ function checkGoFishGameOver() {
     )
   ) {
 
-    goFishGameOver = true;
+    goFishGameOver =
+      true;
 
 
     goFishResult.classList.remove(
@@ -1217,10 +1517,15 @@ function checkGoFishGameOver() {
 }
 
 
+
 function computerGoFishTurn() {
 
-  if (goFishGameOver) {
+  if (
+    goFishGameOver
+  ) {
+
     return;
+
   }
 
 
@@ -1272,7 +1577,9 @@ function computerGoFishTurn() {
 
     goFishResult.textContent =
       "Computer asked for " +
-      values[requestedValue] +
+      values[
+        requestedValue
+      ] +
       " and took " +
       cardsTaken +
       " card(s).";
@@ -1285,15 +1592,20 @@ function computerGoFishTurn() {
       drawFromGoFishDeck();
 
 
-    if (drawnCard) {
+    if (
+      drawnCard
+    ) {
 
       goFishComputer.push(
         drawnCard
       );
 
+
       goFishResult.textContent =
         "Computer asked for " +
-        values[requestedValue] +
+        values[
+          requestedValue
+        ] +
         ". Go Fish!";
 
     }
@@ -1313,6 +1625,7 @@ function computerGoFishTurn() {
 
 
   displayGoFish();
+
 
   checkGoFishGameOver();
 
@@ -1334,6 +1647,7 @@ goFishNewButton.addEventListener(
 
 
     playerBooks = 0;
+
     computerBooks = 0;
 
 
@@ -1352,7 +1666,8 @@ goFishNewButton.addEventListener(
     );
 
 
-    goFishGameOver = false;
+    goFishGameOver =
+      false;
 
 
     goFishResult.classList.remove(
@@ -1375,15 +1690,21 @@ goFishAskButton.addEventListener(
   "click",
   function() {
 
-    if (goFishGameOver) {
+    if (
+      goFishGameOver
+    ) {
+
       return;
+
     }
 
 
     if (
       goFishPlayer.length === 0
     ) {
+
       return;
+
     }
 
 
@@ -1414,7 +1735,9 @@ goFishAskButton.addEventListener(
         "Computer had " +
         cardsTaken +
         " " +
-        values[requestedValue] +
+        values[
+          requestedValue
+        ] +
         "(s)!";
 
     }
@@ -1425,7 +1748,9 @@ goFishAskButton.addEventListener(
         drawFromGoFishDeck();
 
 
-      if (drawnCard) {
+      if (
+        drawnCard
+      ) {
 
         goFishPlayer.push(
           drawnCard
@@ -1478,11 +1803,12 @@ goFishAskButton.addEventListener(
     if (
       checkGoFishGameOver()
     ) {
+
       return;
+
     }
 
 
-    // Wait 3 seconds before computer plays
     setTimeout(
       computerGoFishTurn,
       3000
@@ -1494,7 +1820,7 @@ goFishAskButton.addEventListener(
 
 
 // --------------------
-// MEMORY GAME
+// MEMORY
 // --------------------
 
 const memoryBoard =
@@ -1525,13 +1851,20 @@ const memoryResult =
 
 let memoryCards = [];
 
-let memoryFirstCard = null;
-let memorySecondCard = null;
+let memoryFirstCard =
+  null;
 
-let memoryLockBoard = false;
+let memorySecondCard =
+  null;
 
-let memoryMoveCount = 0;
-let memoryMatchCount = 0;
+let memoryLockBoard =
+  false;
+
+let memoryMoveCount =
+  0;
+
+let memoryMatchCount =
+  0;
 
 
 const memorySymbols = [
@@ -1546,6 +1879,7 @@ const memorySymbols = [
 ];
 
 
+
 function createMemoryDeck() {
 
   let deck = [];
@@ -1554,8 +1888,13 @@ function createMemoryDeck() {
   memorySymbols.forEach(
     function(symbol) {
 
-      deck.push(symbol);
-      deck.push(symbol);
+      deck.push(
+        symbol
+      );
+
+      deck.push(
+        symbol
+      );
 
     }
   );
@@ -1566,13 +1905,17 @@ function createMemoryDeck() {
 }
 
 
+
 function shuffleMemoryDeck(
   deck
 ) {
 
   for (
-    let i = deck.length - 1;
+    let i =
+      deck.length - 1;
+
     i > 0;
+
     i--
   ) {
 
@@ -1583,15 +1926,21 @@ function shuffleMemoryDeck(
       );
 
 
-    const temp = deck[i];
+    const temp =
+      deck[i];
 
-    deck[i] = deck[j];
 
-    deck[j] = temp;
+    deck[i] =
+      deck[j];
+
+
+    deck[j] =
+      temp;
 
   }
 
 }
+
 
 
 function startMemoryGame() {
@@ -1600,17 +1949,25 @@ function startMemoryGame() {
     "";
 
 
-  memoryFirstCard = null;
-  memorySecondCard = null;
+  memoryFirstCard =
+    null;
 
-  memoryLockBoard = false;
+  memorySecondCard =
+    null;
 
-  memoryMoveCount = 0;
-  memoryMatchCount = 0;
+  memoryLockBoard =
+    false;
+
+  memoryMoveCount =
+    0;
+
+  memoryMatchCount =
+    0;
 
 
   memoryMoves.textContent =
     0;
+
 
   memoryMatches.textContent =
     0;
@@ -1676,17 +2033,27 @@ function startMemoryGame() {
 }
 
 
-function flipMemoryCard(card) {
 
-  if (memoryLockBoard) {
+function flipMemoryCard(
+  card
+) {
+
+  if (
+    memoryLockBoard
+  ) {
+
     return;
+
   }
 
 
   if (
-    card === memoryFirstCard
+    card ===
+    memoryFirstCard
   ) {
+
     return;
+
   }
 
 
@@ -1695,7 +2062,9 @@ function flipMemoryCard(card) {
       "matched"
     )
   ) {
+
     return;
+
   }
 
 
@@ -1742,18 +2111,26 @@ function flipMemoryCard(card) {
 }
 
 
+
 function checkMemoryMatch() {
 
   const isMatch =
-    memoryFirstCard.dataset.symbol ===
-    memorySecondCard.dataset.symbol;
+    memoryFirstCard
+      .dataset
+      .symbol ===
+    memorySecondCard
+      .dataset
+      .symbol;
 
 
-  if (isMatch) {
+  if (
+    isMatch
+  ) {
 
     memoryFirstCard.classList.add(
       "matched"
     );
+
 
     memorySecondCard.classList.add(
       "matched"
@@ -1800,17 +2177,23 @@ function checkMemoryMatch() {
     setTimeout(
       function() {
 
-        memoryFirstCard.classList.remove(
-          "flipped"
-        );
+        memoryFirstCard
+          .classList
+          .remove(
+            "flipped"
+          );
 
-        memorySecondCard.classList.remove(
-          "flipped"
-        );
+
+        memorySecondCard
+          .classList
+          .remove(
+            "flipped"
+          );
 
 
         memoryFirstCard.textContent =
           "🂠";
+
 
         memorySecondCard.textContent =
           "🂠";
@@ -1819,6 +2202,7 @@ function checkMemoryMatch() {
         memoryFirstCard.style.color =
           "white";
 
+
         memorySecondCard.style.color =
           "white";
 
@@ -1826,12 +2210,14 @@ function checkMemoryMatch() {
         resetMemoryTurn();
 
       },
+
       1200
     );
 
   }
 
 }
+
 
 
 function resetMemoryTurn() {
